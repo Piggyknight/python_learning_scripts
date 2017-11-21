@@ -2,9 +2,9 @@
 '''
     test
 '''
-print "hello"
+print("hello")
 DICTTEST = {'Michael':95, 'Bob':75}
-print DICTTEST['Michael']
+print(DICTTEST['Michael'])
 
 
 def my_abs(num):
@@ -17,9 +17,9 @@ def my_abs(num):
         return -num
 
 for i, v in enumerate([1, 2, 3, 4, 5]):
-    print i, ":", v
+    print(i, ":", v)
 
-print my_abs(1221)
+print(my_abs(1221))
 
 def fib(max):
     n, a, b = 0, 0, 1
@@ -29,7 +29,7 @@ def fib(max):
         n = n + 1
 
 for i in fib(10):
-    print i
+    print(i)
 
 
 
