@@ -39,16 +39,42 @@ def StripCsFile(filePath):
     :param filePath: absolute path for the cs file 
     :returns: return cs file string whihc has the space & comment lines stripped 
     '''
-    result = list()
-    for line in open(filePath):
-        if not len(line.strip()) or line.strip().startswith("//"):
-            continue
-        result.append(line)
+    try:
+        result = list()
+        for line in open(filePath, 'r', encoding='utf-8'):
+            if not len(line.strip()) or line.strip().startswith("//"):
+                continue
+            result.append(line)
+    except:
+        print("error loading file", filePath)
+
     return result
 
-def GeneratorWord(rootFolder, codeNum):
+def GeneratorWord(rootFolder, codeNum, fileNum):
     '''
     given certain folder to cat link all the cs and export to word doc 
     :return: 
     '''
     filePaths = SearchCsFiles(rootFolder)
+    all_codes = list()
+    fileCount = 1
+    word_base_name = "copy_right_"
+    print("Starting generation....")
+    for file in filePaths:
+        print("......collecting " + file)
+        codes = StripCsFile(file)
+        all_codes.extend(codes)
+        # export word file if we collect enough lines of code
+        if len(all_codes) > codeNum:
+            word_file = "d:\\" + word_base_name + str(fileCount) + ".doc"
+            print("export " + word_file)
+            export_word.Export(word_file, all_codes,"Calibri", 11)
+            fileCount += 1
+            all_codes.clear()
+
+        if fileCount > fileNum:
+            break
+    return
+
+
+
