@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 '''
 store info about the start and end row index of each form
 '''
@@ -19,16 +20,17 @@ class WeekReport:
     def __init__(self):
         self._rows = list()
 
-    def ReadData(self, row_data, row_type):
+    def ReadData(self, owner, row_data, row_type):
         for row in row_data:
             report_row = row_type()
+            report_row._owner = owner
             report_row.ReadData(row)
             self._rows.append(report_row)
 
     def Export(self, exporter):
         result = list()
         for row in self._rows:
-            result.append(exporter.ExportReport(row))
+            result.append(exporter.ExportRow(row))
         return result
 
     def __str__(self):

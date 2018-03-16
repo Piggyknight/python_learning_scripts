@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 _debug_format =  '[%s]%s (%s)\n'
 _week_report_format = "[%s]%s (%s, %s)\n"
 
@@ -9,6 +10,7 @@ class LastWeekFinishedTaskRow:
         self._module_str = ''
         self._task_str = ''
         self._duration = ''
+        self._owner=''
 
     def safe_check_time(selfs, time):
         time_lower = str(time).lower()
@@ -37,5 +39,5 @@ class ExportLastWeekFinishedTaskRow:
     def __init__(self):
         self._owner = ''
 
-    def ExportReport(self, row):
-        return _week_report_format % (row._module_str, row._task_str, self._owner, row._duration)
+        def ExportRow(self, row):
+            return _week_report_format % (row._module_str, row._task_str, self._owner, row._duration)

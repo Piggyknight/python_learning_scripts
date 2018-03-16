@@ -1,3 +1,5 @@
+# -*- coding:utf-8 -*-
+
 """
 function to load different weekly report
 in .xlsx files

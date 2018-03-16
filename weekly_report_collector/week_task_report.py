@@ -1,6 +1,11 @@
+# -*- coding:utf-8 -*-
+
+from project_calendar import *
+from datetime import datetime
+
 _debug_format = '%s-%s [%s]%s %s\n'
 _week_report_format =  '%s-%s [%s]%s (%s, %s)\n'
-_24_report_format = '**** %s\n    :PROPERTIES:\n    :OWNER: %s\n    :WEEKTIME: %s-%s\n    :TIME: \n    :END:\n'
+
 
 '''
 store row data of week task report
@@ -12,6 +17,7 @@ class WeekTaskRow:
         self._estimate_day = ''
         self._start_day = ''
         self._end_day = ''
+        self._owner =''
 
     def safe_check_week(self, week):
         if 0 == week.lower().count('w'):
@@ -48,15 +54,8 @@ class ExportWeekTaskRow:
     def __init__(self):
         self._owner = ''
 
-    def ExportReport(self, row):
+    def ExportRow(self, row):
         return _week_report_format % (
         row._start_day, row._end_day, row._module_str, row._task_str, self._owner, row._estimate_day)
 
 
-
-class ExportWeekTaskRow24:
-    def __init__(self):
-        self._owner = ''
-
-    def ExportReport(self, row):
-        return _24_report_format % (row._task_str, self._owner, row._start_day, row._end_day)
