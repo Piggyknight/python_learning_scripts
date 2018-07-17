@@ -12,7 +12,7 @@ class LastWeekFinishedTaskRow:
         self._duration = ''
         self._owner=''
 
-    def safe_check_time(selfs, time):
+    def safe_check_time(self, time):
         time_lower = str(time).lower()
         if (time_lower.count('h') == 0 and
                     time_lower.count('d') == 0):
@@ -39,5 +39,5 @@ class ExportLastWeekFinishedTaskRow:
     def __init__(self):
         self._owner = ''
 
-        def ExportRow(self, row):
-            return _week_report_format % (row._module_str, row._task_str, self._owner, row._duration)
+    def ExportRow(self, row):
+        return _week_report_format % (row._module_str, row._task_str, row._owner, row._duration)

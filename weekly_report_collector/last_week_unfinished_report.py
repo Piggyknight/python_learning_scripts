@@ -32,4 +32,4 @@ class ExportLastWeekUnFinishedTaskRow:
         self._owner = ''
 
     def ExportRow(self, row):
-        return _week_report_format % (row._module_str, row._task_str, row._reason, self._owner)
+        return _week_report_format % (row._module_str, row._task_str, row._reason, row._owner)

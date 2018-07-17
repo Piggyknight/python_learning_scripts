@@ -28,12 +28,12 @@ def unit_test_all_report():
     for key, obj in zip(keys, objs):
         week_report_data = ReadForm(xlsx_data, dict[key])
         week_report = WeekReport()
-        week_report.ReadData(week_report_data, obj.__class__)
+        week_report.ReadData("", week_report_data, obj.__class__)
         print(week_report)
 
 
 #_folder = 'D:\\Project\\Git\\python_learning_scripts\\weekly_report_collector\\unit_test'
-_folder = 'd:\\Project\\summer_plan\\week_report'
+_folder = 'd:\\summer_plan\\week_report\\20180717\\'
 
 _exporter = [ExportWeekTaskRow(), ExportLastWeekFinishedTaskRow(), ExportLastWeekUnFinishedTaskRow()]
 _rows = [WeekTaskRow(), LastWeekFinishedTaskRow(), LastWeekUnFinishedTaskRow()]
@@ -61,13 +61,13 @@ def unit_test_export_report():
         for i in range(0, len(_exporter)):
             week_report_data = ReadForm(xlsx_data, dict[keys[i]])
             week_report = WeekReport()
-            week_report.ReadData(week_report_data, _rows[i].__class__)
-            _exporter[i]._owner = info[1]
+            week_report.ReadData(info[1],week_report_data, _rows[i].__class__)
             report[i].append(week_report.Export(_exporter[i]))
 
-    fw = open('D:\\report.txt', 'w')
+    fw = open('D:\\report.txt', 'w',encoding='utf-8')
     for i in range(0, len(_exporter)):
-        fw.write(keys[i] + '\n')
+        title_str = '##%s\n' % keys[i]
+        fw.write( title_str )
         for strs in report[i]:
             for str in strs:
                 fw.write(str)
@@ -135,7 +135,7 @@ def unity_test_ProjectCalendar():
 
 def unit_test_load_report_ini():
     cf = Report24Category()
-    cf.LoadIni(file)
+    cf.LoadIni(_category_ini_file)
     print(cf)
     print(cf.GetCategory('公会'))
     print(cf.GetCategory('目标选择'))
@@ -144,8 +144,10 @@ def unit_test_load_report_ini():
     print(cf.GetCategory('NPC|Entity|Monster'))
 
 
+#unit_test_export_24_report()
+unit_test_export_report()
 #unity_test_ProjectCalendar()
-unit_test_export_24_report()
+
 #unit_test_load_report_ini()
 #unit_test_data_time()
 
