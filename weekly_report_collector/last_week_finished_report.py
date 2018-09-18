@@ -33,7 +33,11 @@ class LastWeekFinishedTaskRow:
         time_str=str(time).lower()
         replace_str='[dh]'
         time_str = re.sub(replace_str, '', time_str)
-        return int(time_str)
+        
+        #如果为空则直接返回0
+        if time_str == '': return 0
+            
+        return float(time_str)
         
     def ReadData(self, row):
         self._module_str = row[0]

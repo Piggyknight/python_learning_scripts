@@ -18,7 +18,7 @@ xlsx_data = list()
 def unit_test_read_form():
     xlsx_data = ReadXlsx(filePath)
     dict = AnalyzeXlsx(xlsx_data, keys)
-    print(dict)
+    print(dict) 
     for key in keys:
         print(ReadForm(xlsx_data, dict[key]))
 
@@ -37,7 +37,7 @@ def unit_test_all_report():
 
 
 #_folder = 'D:\\Project\\Git\\python_learning_scripts\\weekly_report_collector\\unit_test'
-_folder = 'd:\\summer_plan\\week_report\\20180807\\'
+_folder = 'd:\\summer_plan\\week_report\\20180917\\'
 
 _exporter = [
             ExportWeekTaskRow(),

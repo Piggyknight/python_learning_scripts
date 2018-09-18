@@ -72,17 +72,37 @@ def ReadForm(xls_data, xls_info):
 
     # generate a dict that key is the forms key, value is the row number
     form = list()
-    for row_num in range(xls_info._row_start, xls_info._row_end):
+
+    if xls_info._row_start > xls_info._row_end : 
+        return form
+
+    # 添加第一行, 用于表格只有1行时, 改行也有可能为空
+    row_num = xls_info._row_start
+    row = table.row_values(row_num)
+    if _is_empty_line(row):
+        return form
+
+    form.append(table.row_values(row_num))
+    row_num += 1
+
+    while row_num < xls_info._row_end : 
         row = table.row_values(row_num)
         # skip empty line
-        if ('' == row[0] and '' == row[1] and
-            '' == row[2] and '' == row[3] and
-            '' == row[3]):
+        if (_is_empty_line(row)):
+            row_num += 1 
             continue
 
         form.append(table.row_values(row_num))
+        row_num +=1
 
     return form
 
-
-
+def _is_empty_line(row):
+    '''
+    输入table的row数据, 判断是否为空
+    '''
+    if ('' == row[0] and '' == row[1] and
+        '' == row[2] and '' == row[3] and
+        '' == row[4]):
+        return True
+    return False
