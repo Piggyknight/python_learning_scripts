@@ -37,7 +37,7 @@ def unit_test_all_report():
 
 
 #_folder = 'D:\\Project\\Git\\python_learning_scripts\\weekly_report_collector\\unit_test'
-_folder = 'd:\\summer_plan\\week_report\\20180917\\'
+_folder = 'd:\\summer_plan\\week_report\\20180925\\'
 
 _exporter = [
             ExportWeekTaskRow(),
