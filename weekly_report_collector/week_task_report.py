@@ -24,7 +24,7 @@ class WeekTaskRow:
             return 'W' + week
         return week
 
-    def safe_check_time(selfs, time):
+    def safe_check_time(self, time):
         time_lower = str(time).lower()
         if (time_lower.count('h') == 0 and
             time_lower.count('d') == 0):
@@ -56,6 +56,6 @@ class ExportWeekTaskRow:
 
     def ExportRow(self, row):
         return _week_report_format % (
-        row._start_day, row._end_day, row._module_str, row._task_str, self._owner, row._estimate_day)
+        row._start_day, row._end_day, row._module_str, row._task_str, row._owner, row._estimate_day)
 
 

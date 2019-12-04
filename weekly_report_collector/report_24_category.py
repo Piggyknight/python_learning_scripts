@@ -26,10 +26,10 @@ class Report24Category:
         return ''
 
     def __str__(self):
-        return self._map.__str__();
+        return self._map.__str__()
 
     def __repr__(self):
-        return self._map.__str__();
+        return self._map.__str__()
 
 
 
