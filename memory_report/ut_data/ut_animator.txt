@@ -1,0 +1,8 @@
+Group:Animator(84),size:1.8 MB
+	name:pc0102(Clone)(Animator), size:369.4 KB
+	name:pc0210_sample(Clone)(Animator), size:171.1 KB
+	name:m80010(Clone)(Animator), size:142.0 KB
+	name:fx_t_bg_skillbuton(Animator), size:1.6 KB
+	name:ingame_task_task_effect(Animator), size:1.5 KB
+	name:cloud001(Animator), size:1.5 KB
+	name:210002_m80010@show(Animator), size:1.5 KB

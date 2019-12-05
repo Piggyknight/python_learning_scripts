@@ -1,0 +1,8 @@
+Module:scene, size:0.003 MB
+		res:Animator, size:0.003 MB
+Module:char, size:0.667 MB
+		res:Animator, size:0.667 MB
+Module:effect, size:0.002 MB
+		res:Animator, size:0.002 MB
+Module:ui, size:0.001 MB
+		res:Animator, size:0.001 MB

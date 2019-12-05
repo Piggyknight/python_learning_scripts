@@ -1,0 +1,3 @@
+Group:ParticleSystem(17317),size:193.8 MB
+	name:glow03(ParticleSystem), size:15.0 KB
+	name:Particle System (1)(ParticleSystem), size:14.9 KB

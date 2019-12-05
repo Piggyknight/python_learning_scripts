@@ -1,0 +1,34 @@
+Group:Texture2D(828),size:237.8 MB
+	split_group:Scene(17),size:76.1 MB
+		name:lightmap_1000500(Texture2D), size:9.5 MB, path:Assets/Scenes/raw/100001/100001_10001/m_100001_main/lightmap_1000500.tga
+	split_group:Character(245),size:56.3 MB
+		name:t_avatar99_cloth_0002_l(Texture2D), size:0.6 MB, path:Assets/Art/Raw/Characters/Materials/avatar/avatar99/cloth/t_avatar99_cloth_0002_l.tga
+		name:t_m00580_hair_d(Texture2D), size:0.6 MB, path:Assets/Art/Raw/Characters/Materials/monster/m00580/t_m00580_hair_d.tga
+		name:t_w040360_m(Texture2D), size:39.5 KB, path:Assets/Art/Raw/Characters/Materials/weapon/w040360/t_w040360_m.tga
+		name:m10110_l(Texture2D), size:155.1 KB, path:Assets/Art/Raw/Characters/Materials/monster/m10110/m10110_l.tga
+		name:ramp_h(Texture2D), size:15.2 KB, path:Assets/Art/Raw/Characters/Materials/avatar/avatar01/cloth/ramp_h.tga
+	split_group:UI(82),size:50.6 MB
+		name:bag(Texture2D), size:2.0 MB, path:Assets/Art/export/Ui/Atlas/acopy/bag.png
+		name:common(Texture2D), size:2.0 MB, path:Assets/Art/export/Ui/Atlas/acopy/common.png
+		name:ingame(Texture2D), size:2.0 MB, path:Assets/Art/export/Ui/Atlas/acopy/ingame.png
+	split_group:building(117),size:29.4 MB
+		name:lxz_lvshutiehua01_n(Texture2D), size:2.7 MB, path:Assets/Art/Raw/Scene/building/lingxizhen/model/Materials/lxz_lvshutiehua01_n.tga
+		name:tree_lvshu02_n(Texture2D), size:1.2 MB, path:Assets/Art/Raw/Scene/building/lingxizhen/model/Materials/tree_lvshu02_n.tga
+		name:lxz_lvshutiehua01_a(Texture2D), size:1.2 MB, path:Assets/Art/Raw/Scene/building/lingxizhen/model/Materials/lxz_lvshutiehua01_a.tga
+		name:tree_lvshu02_a(Texture2D), size:1.2 MB, path:Assets/Art/Raw/Scene/building/lingxizhen/model/Materials/tree_lvshu02_a.tga
+	split_group:Effect(247),size:13.2 MB
+		name:fx_tab(Texture2D), size:2.0 MB, path:Assets/Art/Raw/UI/UI_effect_Alts/fx_tab.png
+		name:fx_j_water_05_1(Texture2D), size:171.0 KB, path:Assets/Art/Raw/Effects/Texture/fx_j_water_05_1.png
+		name:fx_j_jian_01(Texture2D), size:171.0 KB, path:Assets/Art/Raw/Effects/Texture/fx_j_jian_01.png
+	split_group:NotFound(44),size:10.9 MB
+		name:(Texture2D), size:9.9 MB
+		name:Font Texture(Texture2D), size:0.5 MB
+	split_group:ImageEffect(66),size:0.6 MB
+		name:AreaTex(Texture2D), size:350.4 KB, path:Assets/Standard Assets/Effects/ImageEffects/PostProcessing-2/PostProcessing/Textures/SMAA/AreaTex.tga
+		name:LDR_LLL1_2(Texture2D), size:4.4 KB, path:Assets/Standard Assets/Effects/ImageEffects/PostProcessing-2/PostProcessing/Textures/Bluenoise64/LDR_LLL1_2.png
+	split_group:Other(3),size:166.6 KB
+		name:hair_gloss_shift2(Texture2D), size:155.1 KB, path:Assets/Art/Raw/Other/hair_gloss_shift2.tga
+		name:ramp_toon_mmd_obj(Texture2D), size:5.7 KB, path:Assets/Art/Raw/Other/ramp_toon_mmd_obj.png
+	split_group:water(4),size:82.6 KB
+		name:water_n(Texture2D), size:39.5 KB, path:Assets/Art/Raw/Scene/scene/environment/water/water_n.tga
+		name:water(Texture2D), size:39.5 KB, path:Assets/Art/Raw/Scene/scene/environment/water/water.tga
