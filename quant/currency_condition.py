@@ -8,7 +8,7 @@ from currency_db import *
 '''
 class CondStopLoss:
     def __init__(self):
-        self._threshold = 0;
+        self._threshold = 0
         
 
     def IsOk(self,data):
@@ -30,7 +30,7 @@ class CondStopLoss:
 '''
 class CondStopProfit:
     def __init__(self):
-        self._threshold = 0;
+        self._threshold = 0
         
 
     def IsOk(self,data):

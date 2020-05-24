@@ -2,6 +2,10 @@
 
 import types
 from currency_db import *
+from currency_db_search import *
+from currency_conf import *
+
+
 
 '''
 基本策略是:制定时间段内
@@ -13,11 +17,11 @@ from currency_db import *
     可调参数:
 		- 使用起始年日 格式: 2019.01.01
 		- 使用结束年日: 格式: 2019.01.02
-		- 每天买入时间点: 24进制时间
-		- 过去多少时间内没有底部突破
-		- 过去多少时间内作为最低点的统计
-		- 过去多少时间内没有高点突破
-		- 过去多少时间内作为最高点的统计
+		- 每天买入时间点: 24进制时间, 单位小时
+		- 过去多少时间内没有底部突破: 单位小时
+		- 过去多少时间内作为最低点的统计: 单位小时
+		- 过去多少时间内没有高点突破: 单位小时
+		- 过去多少时间内作为最高点的统计: 单位小时
 		- 止损点
 		- 止盈点
 		- 买入后多少小时平仓
@@ -32,6 +36,11 @@ class AiTrading:
         self._buy_amount = 1
         self._last_bottom = 0
         self._last_top = 0
+        self._conf = None
+
+    def Set(currency_conf):
+        self._conf = currency_conf
+        return
 
     def Process(self, data):
         # 1. safe check
@@ -39,10 +48,16 @@ class AiTrading:
             return
 
         # 2. check if data is enough
+        if len(_last_data) < _data_num:
+            return
 
+        # 3. convert time conf to idx in the row
         # 3. check if hit the bottom
+        bottom = SearchBottom(self._last_data, )
+
 
         #4. check if hit the top
+
 
         #5. generate command list
 

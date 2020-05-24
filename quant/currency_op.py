@@ -13,7 +13,8 @@ class IdGenerator:
         return
 
     def GetId(self):
-        return ++self._cur_id
+        self._cur_id += 1
+        return self._cur_id
 
 class OpSell:
     def __init__(self, id_gen):

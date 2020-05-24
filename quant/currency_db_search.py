@@ -3,6 +3,22 @@
 from currency_db import *
 import sys
 
+
+def _validate(db, start_idx, back_count):
+    # 1.1 safe check db is empty
+    if 0 == len(db):
+        print("[Search]Error: db is empty")
+        return -1
+
+
+
+    # 1.3 don't support back_count is negative, which means search forward    
+    if start_idx - back_count > len(db):
+        print("[Search]Error: don't support search forward")
+        return -1
+
+    return 0
+    
 '''
     Search the min close value by given the list of db
         - input: 
@@ -96,9 +112,9 @@ def SearchBelow(db, start_idx, back_count, threshold):
     for i in range(begin_idx, start_idx):
         if db[i]._close <= threshold : 
             idx = i
-            break;
+            break
 
-    return idx;
+    return idx
 
 
 '''
@@ -131,23 +147,8 @@ def SearchAbove(db, start_idx, back_count, threshold):
     for i in range(begin_idx, start_idx):
         if db[i]._close >= threshold : 
             idx = i
-            break;
+            break
 
-    return idx;
-
-
-
-def _validate(db, start_idx, back_count):
-    # 1.1 safe check db is empty
-    if 0 == len(db):
-        print("[Search]Error: db is empty")
-        return -1
+    return idx
 
 
-
-    # 1.3 don't support back_count is negative, which means search forward    
-    if start_idx - back_count > len(db):
-        print("[Search]Error: don't support search forward")
-        return -1
-
-    return 0
