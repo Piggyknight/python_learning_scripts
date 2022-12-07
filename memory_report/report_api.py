@@ -1,69 +1,69 @@
 # -*- coding:utf-8 -*-
-
-
 from report_enum import *
 from report_sum_report import *
 from report_module_analyze import *
 from report_db import *
 
+
 def ExportSumReport(file_path, op_path):
-    #1.¶ÁÎÄ¼þ
+    # 1.ï¿½ï¿½ï¿½Ä¼ï¿½
     db = _load_db(file_path)
-    
-    #2.½«µ¼³ödb¸øµ½exporter, ½øÐÐ±¨¸æµ¼³ö
+
+    # 2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½dbï¿½ï¿½ï¿½ï¿½exporter, ï¿½ï¿½ï¿½Ð±ï¿½ï¿½æµ¼ï¿½ï¿½
     print("2. Export sumarized report...")
     exporter = SumReporter()
     exporter.Export(op_path, db)
     print("3. Finished export sumarized report...")
     pass
 
-def _load_db(file_path):
-     #1. ³õÊ¼»¯¾Ö²¿±äÁ¿
-    res_type=ResType.none
-    m_type=ModuleType.none
-    db = ReportDb()
-    line_count=0
 
-    #2.¶ÁÎÄ¼þ
+def _load_db(file_path):
+    # 1. ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ö²ï¿½ï¿½ï¿½ï¿½ï¿½
+    res_type = ResType.none
+    m_type = ModuleType.none
+    db = ReportDb()
+    line_count = 0
+
+    # 2.ï¿½ï¿½ï¿½Ä¼ï¿½
     with open(file_path, 'r') as file:
         print("1. Start reading file ...")
         while True:
             line = file.readline()
-            line_count +=1
+            line_count += 1
 
             if not line:
                 break;
 
-            #3.½âÎöÐÐµÄÀàÐÍ
-            line_type=_try_parse_line_type(line)
+            # 3.ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+            line_type = _try_parse_line_type(line)
 
-            #4.¸ù¾ÝÐÐÀàÐÍ½øÐÐ½âÎö
+            # 4.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½
             if LineType.data == line_type:
                 row_data = _analyze_data(line, res_type, m_type)
                 db.AddRow(row_data)
-            elif LineType.split_group == line_type : 
-                m_type=_analyze_split_group(line)
+            elif LineType.split_group == line_type:
+                m_type = _analyze_split_group(line)
                 print("has sub_type:", m_type)
             elif LineType.group == line_type:
                 res_type = _analyze_group(line)
                 m_type = ModuleType.none
                 print("Start analyze res:", res_type)
-            elif LineType.total_size==line_type:
+            elif LineType.total_size == line_type:
                 pass
             else:
                 print("[error]unknown line type : ", line)
 
     return db
-    
+
 
 def _try_parse_line_type(line):
     '''
        According to the key word in each line to return line type
     '''
-    line_map = {"Group":LineType.group
-                , "split_group":LineType.split_group
-                , "Total":LineType.total_size
-                , "name:":LineType.data}
+    line_map = {"Group": LineType.group
+        , "split_group": LineType.split_group
+        , "Total": LineType.total_size
+        , "name:": LineType.data}
 
     for (key, pair) in line_map.items():
         if key in line:
@@ -86,16 +86,17 @@ def _analyze_group(line):
 
     return ResType.none
 
+
 def _analyze_split_group(line):
-    line_map={"Character":ModuleType.char
-              ,"Scene":ModuleType.scene
-              ,"UI":ModuleType.ui
-              ,"building":ModuleType.scene
-              ,"Effect":ModuleType.effect
-              ,"NotFound":ModuleType.misc
-              ,"ImageEffect":ModuleType.effect
-              ,"Other":ModuleType.char
-              ,"water":ModuleType.scene}
+    line_map = {"Character": ModuleType.char
+        , "Scene": ModuleType.scene
+        , "UI": ModuleType.ui
+        , "building": ModuleType.scene
+        , "Effect": ModuleType.effect
+        , "NotFound": ModuleType.misc
+        , "ImageEffect": ModuleType.effect
+        , "Other": ModuleType.char
+        , "water": ModuleType.scene}
 
     for (key, pair) in line_map.items():
         if key in line:
@@ -151,7 +152,8 @@ def _analyze_json_str(str):
 
     datas = str.split(':')
     return datas[1]
-   
+
+
 def _analyze_size(str):
     '''
         - input str forma: size:0.05 KB(MB), 
@@ -166,9 +168,9 @@ def _analyze_size(str):
     return size
 
 
-#ExportSumReport("D:/memory_profile/2019-11-30-linxizheng_end/memory_report.txt", "D:/memory_profile/2019-11-30-linxizheng_end/report.txt")
-#ExportSumReport("d:/memory_profile/2019-11-30-linxizheng_start/memory_report.txt", "D:/memory_profile/2019-11-30-linxizheng_start/report.txt")
-#ExportSumReport("d:/memory_profile/2019-11-30-character_createor/memory_report.txt", "D:/memory_profile/2019-11-30-character_createor/report.txt")
-#ExportSumReport("d:/memory_profile/2019-11-30-jingqiao_start/memory_report.txt", "D:/memory_profile/2019-11-30-jingqiao_start/report.txt")
-ExportSumReport("d:/memory_profile/2019-11-30-jingqiao_end/memory_report.txt", "D:/memory_profile/2019-11-30-jingqiao_end/report.txt")
-
+# ExportSumReport("D:/memory_profile/2019-11-30-linxizheng_end/memory_report.txt", "D:/memory_profile/2019-11-30-linxizheng_end/report.txt")
+# ExportSumReport("d:/memory_profile/2019-11-30-linxizheng_start/memory_report.txt", "D:/memory_profile/2019-11-30-linxizheng_start/report.txt")
+# ExportSumReport("d:/memory_profile/2019-11-30-character_createor/memory_report.txt", "D:/memory_profile/2019-11-30-character_createor/report.txt")
+# ExportSumReport("d:/memory_profile/2019-11-30-jingqiao_start/memory_report.txt", "D:/memory_profile/2019-11-30-jingqiao_start/report.txt")
+ExportSumReport("d:/memory_profile/2019-11-30-jingqiao_end/memory_report.txt",
+                "D:/memory_profile/2019-11-30-jingqiao_end/report.txt")

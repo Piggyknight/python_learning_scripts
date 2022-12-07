@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
-
 from report_enum import *
+
 
 class ReportDbRow:
     def __init__(self):
@@ -26,18 +26,14 @@ class ReportDb:
         row._m_type = m_type
         row._size = size
         row._name = name
-
         self._add_to_db(row)
-        
 
     def _add_to_db(self, row):
         self._db.append(row)
-   
+
     def __str__(self):
-        strs = ''
+        ret_str = ''
         for row in self._db:
-            strs += row.__str__()
-            strs +='\n'
-        return strs
-
-
+            ret_str += row.__str__()
+            ret_str += '\n'
+        return ret_str
